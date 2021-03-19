@@ -28,11 +28,11 @@ namespace ExampleWS
         }
         protected override void OnStop()
         {
-            WriteToFile("Service is stopped at " + DateTime.Now);
+            WriteToFile("Service is stopped at " + DateTime.Now + "!!!");
         }
         private void OnElapsedTime(object source, ElapsedEventArgs e)
         {
-            WriteToFile("Service is recall at " + DateTime.Now);
+            WriteToFile("Service is recall at " + DateTime.Now + "!!!");
         }
         public void WriteToFile(string Message)
         {
