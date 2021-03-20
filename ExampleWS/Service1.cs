@@ -53,7 +53,7 @@ namespace ExampleWS
             {
                 using (StreamWriter sw = File.AppendText(filepath))
                 {
-                    sw.WriteLine(Message);
+                    sw.WriteLine(Message+ "deneme ");
                 }
             }
         }
