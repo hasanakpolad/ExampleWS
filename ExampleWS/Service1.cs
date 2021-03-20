@@ -46,7 +46,7 @@ namespace ExampleWS
             {
                 using (StreamWriter sw = File.CreateText(filepath))
                 {
-                    sw.WriteLine(Message);
+                    sw.WriteLine(Message + " deneme ");
                 }
             }
             else
