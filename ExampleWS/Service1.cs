@@ -32,7 +32,7 @@ namespace ExampleWS
         }
         private void OnElapsedTime(object source, ElapsedEventArgs e)
         {
-            WriteToFile("Service is recall at " + DateTime.Now + "!!!");
+            WriteToFile("Service is recall at " + DateTime.Now + "!!!!!");
         }
         public void WriteToFile(string Message)
         {
