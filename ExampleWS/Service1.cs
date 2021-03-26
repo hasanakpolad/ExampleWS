@@ -21,7 +21,7 @@ namespace ExampleWS
         }
         protected override void OnStart(string[] args)
         {
-            WriteToFile("Service is started at " + DateTime.Now);
+            WriteToFile("Service is started at " + DateTime.Now+"değişiklik");
             timer.Elapsed += new ElapsedEventHandler(OnElapsedTime);
             timer.Interval = 3000; 
             timer.Enabled = true;
