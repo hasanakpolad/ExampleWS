@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
@@ -36,24 +37,27 @@ namespace ExampleWS
         }
         public void WriteToFile(string Message)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "\\Logs";
-            if (!Directory.Exists(path))
+            if (ConfigurationManager.AppSettings.Get("Deneme") == "X")
             {
-                Directory.CreateDirectory(path);
-            }
-            string filepath = AppDomain.CurrentDomain.BaseDirectory + "\\Logs\\ServiceLog_" + DateTime.Now.Date.ToShortDateString().Replace('/', '_') + ".txt";
-            if (!File.Exists(filepath))
-            {
-                using (StreamWriter sw = File.CreateText(filepath))
+                string path = AppDomain.CurrentDomain.BaseDirectory + "\\Logs";
+                if (!Directory.Exists(path))
                 {
-                    sw.WriteLine(Message + " denemeSon ");
+                    Directory.CreateDirectory(path);
                 }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(filepath))
+                string filepath = AppDomain.CurrentDomain.BaseDirectory + "\\Logs\\ServiceLog_" + DateTime.Now.Date.ToShortDateString().Replace('/', '_') + ".txt";
+                if (!File.Exists(filepath))
                 {
-                    sw.WriteLine(Message+ "denemeSon1 ");
+                    using (StreamWriter sw = File.CreateText(filepath))
+                    {
+                        sw.WriteLine(Message + " denemeSon ");
+                    }
+                }
+                else
+                {
+                    using (StreamWriter sw = File.AppendText(filepath))
+                    {
+                        sw.WriteLine(Message + "denemeSon1 ");
+                    }
                 }
             }
         }
